@@ -58,6 +58,15 @@ describe("schemaToTypeAliasDeclaration", () => {
     expect(printSchema(schema)).toBe("export type Test = number[];");
   });
 
+  it("should generate a string const", () => {
+    const schema: SchemaObject = {
+      const: "CONSTANT",
+      title: "Test",
+    };
+
+    expect(printSchema(schema)).toBe('export type Test = "CONSTANT";');
+  });
+
   it("should generate enums (strings)", () => {
     const schema: SchemaObject = {
       type: "string",
@@ -628,9 +637,9 @@ describe("schemaToTypeAliasDeclaration", () => {
           { type: "object", properties: { bar: { type: "number" } } },
         ],
         properties: {
-          foobar: {type: "string"}
+          foobar: { type: "string" },
         },
-        required: ['foo', 'foobar']
+        required: ["foo", "foobar"],
       };
 
       expect(printSchema(schema)).toMatchInlineSnapshot(`
@@ -641,7 +650,7 @@ describe("schemaToTypeAliasDeclaration", () => {
       };"
     `);
     });
-    
+
     it("should combine additionalProperties and allOf", () => {
       const schema: SchemaObject = {
         allOf: [
@@ -649,8 +658,8 @@ describe("schemaToTypeAliasDeclaration", () => {
           { type: "object", properties: { bar: { type: "number" } } },
         ],
         additionalProperties: {
-          type: "string"
-        }
+          type: "string",
+        },
       };
 
       expect(printSchema(schema)).toMatchInlineSnapshot(`
@@ -662,7 +671,7 @@ describe("schemaToTypeAliasDeclaration", () => {
       };"
     `);
     });
-    
+
     it("should combine properties & additionalProperties & allOf", () => {
       const schema: SchemaObject = {
         allOf: [
@@ -670,12 +679,12 @@ describe("schemaToTypeAliasDeclaration", () => {
           { type: "object", properties: { bar: { type: "number" } } },
         ],
         additionalProperties: {
-          type: "string"
+          type: "string",
         },
         properties: {
-          foobar: {type: "string"}
+          foobar: { type: "string" },
         },
-        required: ['bar', 'foobar']
+        required: ["bar", "foobar"],
       };
 
       expect(printSchema(schema)).toMatchInlineSnapshot(`
