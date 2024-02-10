@@ -1,0 +1,1 @@
+{"version":3,"file":"camelizedPathParams.js","sourceRoot":"","sources":["../../src/core/camelizedPathParams.ts"],"names":[],"mappings":";;;AAAA,+BAA6B;AAE7B;;;;;GAKG;AACI,MAAM,mBAAmB,GAAG,CAAC,GAAW,EAAE,EAAE,CACjD,GAAG,CAAC,OAAO,CAAC,kBAAkB,EAAE,CAAC,KAAK,EAAE,EAAE,CAAC,IAAI,IAAA,YAAK,EAAC,KAAK,CAAC,GAAG,CAAC,CAAC;AADrD,QAAA,mBAAmB,uBACkC"}
