@@ -1,70 +1,44 @@
 {
-  "name": "openapi-codegen",
-  "version": "0.0.1",
-  "description": "OpenAPI code generator framework",
-  "repository": "https://github.com/fabien0102/openapi-codegen",
+  "name": "@openapi-codegen/typescript",
+  "version": "8.0.0",
+  "description": "OpenAPI Codegen typescript generators",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "repository": {
+    "url": "https://github.com/fabien0102/openapi-codegen",
+    "directory": "plugins/typescript"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.package.json",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "keywords": [
+    "openapi",
+    "codegen",
+    "plugin",
+    "typescript"
+  ],
   "author": "Fabien Bernard",
   "license": "MIT",
-  "private": true,
-  "engines": {
-    "node": ">=16"
-  },
-  "workspaces": [
-    "cli",
-    "plugins/typescript"
-  ],
-  "scripts": {
-    "test": "jest",
-    "build:all": "npx lerna run build",
-    "all-contrib": "all-contributors"
-  },
-  "devDependencies": {
-    "@swc/jest": "^0.2.12",
-    "@types/jest": "^27.0.2",
-    "@types/node": "^16.10.9",
-    "all-contributors-cli": "^6.20.0",
-    "eslint": "^8.0.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "got": "^12.4.1",
-    "husky": "^7.0.2",
-    "jest": "^27.2.5",
-    "lerna": "^5.5.0",
-    "prettier": "^2.4.1",
-    "pretty-quick": "^3.1.1",
+  "dependencies": {
+    "case": "^1.6.3",
+    "lodash": "^4.17.21",
+    "openapi3-ts": "^2.0.1",
+    "pluralize": "^8.0.0",
+    "tslib": "^2.3.1",
+    "tsutils": "^3.21.0",
     "typescript": "4.8.2"
   },
-  "jest": {
-    "projects": [
-      {
-        "displayName": "cli",
-        "transform": {
-          "^.+\\.(t|j)sx?$": [
-            "@swc/jest",
-            {
-              "sourceMaps": true
-            }
-          ]
-        },
-        "transformIgnorePatterns": [],
-        "testMatch": [
-          "<rootDir>/cli/**/*.test.ts"
-        ]
-      },
-      {
-        "displayName": "plugins/typescript",
-        "transform": {
-          "^.+\\.(t|j)sx?$": [
-            "@swc/jest",
-            {
-              "sourceMaps": true
-            }
-          ]
-        },
-        "testMatch": [
-          "<rootDir>/plugins/typescript/**/*.test.ts"
-        ]
-      }
-    ]
+  "devDependencies": {
+    "@types/lodash": "^4.14.175",
+    "@types/pluralize": "^0.0.29",
+    "@types/qs": "^6.9.7"
   }
 }

@@ -1,9 +1,0 @@
-{
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "baseUrl": "./",
-    "module": "CommonJS",
-    "lib": ["DOM"]
-  },
-  "include": ["src/**/*"]
-}
