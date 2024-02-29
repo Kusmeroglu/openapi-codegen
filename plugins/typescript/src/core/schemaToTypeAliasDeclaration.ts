@@ -131,18 +131,21 @@ export const getType = (
     const adHocSchemas: Array<SchemaObject> = [];
     if (schema.properties) {
       adHocSchemas.push({
-        type: "object",
+        type: 'object',
         properties: schema.properties,
-        required: schema.required,
+        required: schema.required
       });
     }
     if (schema.additionalProperties) {
       adHocSchemas.push({
-        type: "object",
-        additionalProperties: schema.additionalProperties,
+        type: 'object',
+        additionalProperties: schema.additionalProperties
       });
     }
-    return getAllOf([...schema.allOf, ...adHocSchemas], context);
+    return getAllOf([
+      ...schema.allOf,
+      ...adHocSchemas
+     ], context);
   }
 
   if (schema.enum) {
@@ -229,10 +232,7 @@ export const getType = (
       const members: ts.TypeElement[] = Object.entries(
         schema.properties || {}
       ).map(([key, property]) => {
-        const isEnum =
-          typeof property === "object" &&
-          "enum" in property &&
-          useEnumsConfigBase;
+        const isEnum = typeof property === "object" && "enum" in property && useEnumsConfigBase;
 
         const propertyNode = f.createPropertySignature(
           undefined,

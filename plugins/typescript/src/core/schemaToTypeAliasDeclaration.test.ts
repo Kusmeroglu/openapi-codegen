@@ -637,9 +637,9 @@ describe("schemaToTypeAliasDeclaration", () => {
           { type: "object", properties: { bar: { type: "number" } } },
         ],
         properties: {
-          foobar: { type: "string" },
+          foobar: {type: "string"}
         },
-        required: ["foo", "foobar"],
+        required: ['foo', 'foobar']
       };
 
       expect(printSchema(schema)).toMatchInlineSnapshot(`
@@ -650,7 +650,7 @@ describe("schemaToTypeAliasDeclaration", () => {
       };"
     `);
     });
-
+    
     it("should combine additionalProperties and allOf", () => {
       const schema: SchemaObject = {
         allOf: [
@@ -658,8 +658,8 @@ describe("schemaToTypeAliasDeclaration", () => {
           { type: "object", properties: { bar: { type: "number" } } },
         ],
         additionalProperties: {
-          type: "string",
-        },
+          type: "string"
+        }
       };
 
       expect(printSchema(schema)).toMatchInlineSnapshot(`
@@ -671,7 +671,7 @@ describe("schemaToTypeAliasDeclaration", () => {
       };"
     `);
     });
-
+    
     it("should combine properties & additionalProperties & allOf", () => {
       const schema: SchemaObject = {
         allOf: [
@@ -679,12 +679,12 @@ describe("schemaToTypeAliasDeclaration", () => {
           { type: "object", properties: { bar: { type: "number" } } },
         ],
         additionalProperties: {
-          type: "string",
+          type: "string"
         },
         properties: {
-          foobar: { type: "string" },
+          foobar: {type: "string"}
         },
-        required: ["bar", "foobar"],
+        required: ['bar', 'foobar']
       };
 
       expect(printSchema(schema)).toMatchInlineSnapshot(`
